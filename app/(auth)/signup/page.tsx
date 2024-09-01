@@ -1,18 +1,17 @@
 import AuthLayout from "@/components/auth/AuthLayout";
-import LoginForm from "@/components/auth/LoginForm";
+import SignupForm from "@/components/auth/SignupForm";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import React from "react";
 
-const Login = async () => {
+const Signup = async () => {
   const session = await getServerSession();
 
   if (session) redirect("/");
   return (
-    <AuthLayout img="/images/login_img.png">
-      <LoginForm />
+    <AuthLayout img="/images/signup_img.png">
+      <SignupForm />
     </AuthLayout>
   );
 };
 
-export default Login;
+export default Signup;
