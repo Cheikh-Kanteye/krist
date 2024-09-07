@@ -6,21 +6,22 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import ProductCard from "../ui/ProductCard";
 import { CategrorieSlides } from "@/constants";
 import useCarousel from "@/hooks/useCarousel";
+import CategorieCard from "../ui/CategorieCard";
+
+const getButtonClass = (isActive: boolean) =>
+  `w-fit px-4 h-11 ${isActive ? "bg-black" : "bg-black/10"}`;
 
 const ShopByCategory = () => {
   const { hasPrevious, hasNext, scroll, carouselRef, handleScroll } =
     useCarousel();
+
   return (
     <section className="grid-container py-8 md:py-12 lg:py-16">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-medium">
-          Shop by Categories
-        </h3>
+        <h3 className="section-title">Shop by Categories</h3>
         <div className="flex items-center gap-2">
           <Button
-            className={`w-fit px-4 h-11 ${
-              hasPrevious ? "bg-black" : "bg-black/10"
-            }`}
+            className={getButtonClass(hasPrevious)}
             iconRight={
               <BsArrowLeft color={hasPrevious ? "white" : "black"} size={24} />
             }
@@ -28,9 +29,7 @@ const ShopByCategory = () => {
             onClick={() => scroll("left")}
           />
           <Button
-            className={`w-fit px-4 h-11 ${
-              hasNext ? "bg-black" : "bg-black/10"
-            }`}
+            className={getButtonClass(hasNext)}
             iconRight={
               <BsArrowRight color={hasNext ? "white" : "black"} size={24} />
             }
@@ -47,11 +46,11 @@ const ShopByCategory = () => {
           onScroll={handleScroll}
         >
           {CategrorieSlides.map((category, index) => (
-            <ProductCard
+            <CategorieCard
               key={index}
               src={category.img}
               label={category.label}
-              className="w-[80vw] md:w-[40vw] lg:w-[25vw]"
+              className="w-[80vw] md:w-[40vw] lg:w-[25vw]" // Responsive styles
             />
           ))}
         </div>

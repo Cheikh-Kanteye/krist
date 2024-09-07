@@ -6,14 +6,12 @@ export const NavItemList = [
   { label: "contact us", href: "/contact" },
 ];
 
-type Product = {
-  label: string;
-  url: string;
-};
-
 type Category = {
   categorie: string;
-  products: Product[];
+  products: {
+    label: string;
+    url: string;
+  }[];
 };
 
 export const ProductsCategories: Category[] = [
@@ -194,14 +192,75 @@ export const CategrorieSlides = [
   },
   {
     label: "Footwear",
-    img: "/images/img1.png",
+    img: "/images/img6.png",
   },
   {
     label: "Women",
-    img: "/images/img2.png",
+    img: "/images/img7.png",
   },
   {
     label: "men",
-    img: "/images/img3.png",
+    img: "/images/img5.png",
   },
 ];
+
+export const ProductLists = [
+  {
+    src: "/images/product-1.png",
+    label: "Roadstar",
+    description: "Printed Cotton T-Shirt",
+    currentPrice: "$38.00",
+    originalPrice: "$40.00",
+  },
+  {
+    src: "/images/product-2.png",
+    label: "Allen Solly",
+    description: "Women Textured Handheld Bag",
+    currentPrice: "$80.00",
+    originalPrice: "$100.00",
+  },
+  {
+    src: "/images/product-3.png",
+    label: "Louis Philippe Sport",
+    description: "POLO Collar T-Shirt",
+    currentPrice: "$50.00",
+    originalPrice: "$55.00",
+  },
+  {
+    src: "/images/product-4.png",
+    label: "Adidas",
+    description: "Men adi-dash Running Shoes",
+    currentPrice: "$60.00",
+    originalPrice: "",
+  },
+  {
+    src: "/images/product-6.png",
+    label: "Trendyol",
+    description: "Floral Embroidered Maxi Dress",
+    currentPrice: "$35.00",
+    originalPrice: "$45.00",
+  },
+  {
+    src: "/images/product-7.png",
+    label: "YK Disney",
+    description: "Girls Pink Moana Printed Dress",
+    currentPrice: "$80.00",
+    originalPrice: "$100.00",
+  },
+  {
+    src: "/images/product-8.png",
+    label: "US Polo",
+    description: "Tailored Cotton Casual Shirt",
+    currentPrice: "$40.00",
+    originalPrice: "$50.00",
+  },
+  {
+    src: "/images/product-5.png",
+    label: "zyla",
+    description: "Women Sandals",
+    currentPrice: "$35.00",
+    originalPrice: "$40.00",
+  },
+];
+
+export type Product = (typeof ProductLists)[number];

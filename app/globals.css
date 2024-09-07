@@ -48,6 +48,33 @@
   .default-card-style {
     @apply card min-w-[16rem] h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
   }
+
+  .section-title {
+    @apply text-xl md:text-2xl lg:text-3xl font-semibold;
+  }
+
+  .product .btn {
+    @apply translate-y-96 duration-300 transition-transform bg-white shadow-md items-center justify-center capitalize hover:!bg-white/70 backdrop-blur-sm font-semibold !text-black;
+  }
+
+  .product:hover .btn {
+    @apply translate-y-0;
+  }
+
+  .product:hover .action {
+    @apply translate-x-0;
+  }
+
+  .product .action {
+    @apply absolute top-4 right-0 p-3 flex flex-col gap-2 translate-x-96 duration-300 transition-transform;
+  }
+  .product .icon-btn {
+    @apply w-9 h-9 aspect-square justify-center items-center bg-white !text-black shadow-sm hover:bg-white/70 backdrop-blur-md !rounded-full;
+  }
+
+  .default-btn {
+    @apply h-14 bg-black text-center w-full text-white flex items-center gap-2 rounded-lg text-lg;
+  }
 }
 
 .carousel::-webkit-scrollbar {
