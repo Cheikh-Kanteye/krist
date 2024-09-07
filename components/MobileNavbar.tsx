@@ -1,7 +1,8 @@
 import { IconBtn } from "./IconBtn";
 import { IoClose } from "react-icons/io5";
 import Button from "./ui/Button";
-import { NavItem, NavItemList } from "./Navitem";
+import { NavItem } from "./Navitem";
+import { NavItemList } from "@/constants";
 
 export const MobileNavbar = ({
   showMenu,
@@ -12,7 +13,7 @@ export const MobileNavbar = ({
 }) => {
   return (
     <div
-      className={`fixed top-0 right-0 h-screen w-[260px] bg-white shadow-lg duration-300 transition-transform ${
+      className={`fixed z-50 top-0 right-0 h-screen w-[260px] bg-white shadow-lg duration-300 transition-transform ${
         showMenu ? "translate-x-0" : "translate-x-full"
       }`}
     >

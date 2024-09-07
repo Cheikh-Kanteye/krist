@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
-import { getServerSession } from "next-auth";
 import "./globals.css";
-import LogoutBtn from "@/components/LogoutBtn";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import App from "./_app";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -20,15 +16,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession();
-
   return (
     <html lang="en">
       <body className={jost.className}>
-        <Header />
-        {children}
-        <ToastContainer />
-        <Footer />
+        <App>{children}</App>
       </body>
     </html>
   );

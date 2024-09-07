@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .banner-img-layer {
+    z-index: 0;
+    transform-style: preserve-3d;
+  }
+  .banner-img-layer::before,
+  .banner-img-layer::after {
+    @apply content-[''] absolute inset-x-12 lg:inset-x-24 right-16 lg:right-32 inset-y-7 lg:inset-y-14 border-white;
+  }
+
+  .banner-img-layer::before {
+    border-top-width: 20px;
+    z-index: -1;
+  }
+  .banner-img-layer::after {
+    border-width: 20px;
+    border-top-width: 0;
+  }
+
+  .container {
+    @apply max-w-screen-xl h-full mx-auto px-4;
+  }
+  .grid-container {
+    max-width: calc(calc(16rem * 4) + 90px);
+    @apply h-full mx-auto px-4;
+  }
+
+  .card {
+    @apply transition-all duration-300;
+  }
+
+  .card .btn {
+    @apply transition-all duration-300;
+  }
+
+  .card:has(.btn:hover) {
+    @apply bg-gray-200;
+  }
+
+  .product-grid {
+    @apply grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4;
+  }
+
+  .default-card-style {
+    @apply card min-w-[16rem] h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
+  }
+}
+
+.carousel::-webkit-scrollbar {
+  display: none !important;
+}
+
+.carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
