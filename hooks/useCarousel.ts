@@ -5,10 +5,9 @@ const useCarousel = () => {
   const [hasNext, setHasNext] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Fonction pour gérer le défilement vers la droite ou la gauche
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const scrollAmount = carouselRef.current.clientWidth / 2; // Scroll de la moitié de la largeur visible
+      const scrollAmount = carouselRef.current.clientWidth / 2;
       if (direction === "left") {
         carouselRef.current.scrollBy({
           left: -scrollAmount,
@@ -33,7 +32,7 @@ const useCarousel = () => {
   };
 
   useEffect(() => {
-    handleScroll(); // Vérifier à l'initialisation
+    handleScroll();
   }, []);
 
   return {

@@ -5,12 +5,11 @@ import Button from "../ui/Button";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import ProductCard from "../ui/ProductCard";
 import { CategrorieSlides } from "@/constants";
-import useCarousel from "@/hooks/useCarousel"; // Importer le hook
+import useCarousel from "@/hooks/useCarousel";
 
 const ShopByCategory = () => {
   const { hasPrevious, hasNext, scroll, carouselRef, handleScroll } =
-    useCarousel(); // Utiliser le hook
-
+    useCarousel();
   return (
     <section className="grid-container py-8 md:py-12 lg:py-16">
       <div className="flex items-center justify-between">
@@ -52,7 +51,7 @@ const ShopByCategory = () => {
               key={index}
               src={category.img}
               label={category.label}
-              className="w-[80vw] md:w-[40vw] lg:w-[25vw]" // Taille des produits selon la taille de l'écran
+              className="w-[80vw] md:w-[40vw] lg:w-[25vw]"
             />
           ))}
         </div>
