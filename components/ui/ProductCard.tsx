@@ -3,6 +3,7 @@ import Button from "./Button";
 import { RiArrowLeftRightLine, RiEyeLine, RiStarLine } from "react-icons/ri";
 import Image from "next/image";
 import { Product } from "@/constants";
+import { formatPrice } from "@/utils";
 
 const ProductCard = ({
   product,
@@ -21,7 +22,7 @@ const ProductCard = ({
           alt="products"
           width={1000}
           height={1000}
-          className="w-auto h-[90%] object-fit"
+          className="object-fit"
         />
         <Button
           label={"Add to Cart"}
@@ -38,9 +39,11 @@ const ProductCard = ({
         <h5 className="text-lg font-semibold">{product.label}</h5>
         <p className="text-base text-black/70">{product.description}</p>
         <div className="flex gap-2">
-          <strong className="text-black">${product.currentPrice}</strong>
+          <strong className="text-black">
+            {formatPrice(product.currentPrice)}
+          </strong>
           <strong className="line-through text-black/20">
-            ${product.originalPrice}
+            {formatPrice(product.originalPrice)}
           </strong>
         </div>
       </div>
