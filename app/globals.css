@@ -46,7 +46,7 @@
   }
 
   .default-card-style {
-    @apply card min-w-[16rem] h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
+    @apply card h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
   }
 
   .section-title {
@@ -73,7 +73,11 @@
   }
 
   .default-btn {
-    @apply h-14 bg-black text-center w-full text-white flex items-center gap-2 rounded-lg text-lg;
+    @apply h-14 bg-black text-center w-full text-white flex items-center gap-2 rounded-lg text-lg justify-center;
+  }
+
+  P {
+    @apply text-base xl:text-lg leading-snug text-pretty;
   }
 }
 

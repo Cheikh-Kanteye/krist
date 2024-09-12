@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect, useCallback } from "react";
 
 const formatNumber = (num: number) => num.toString().padStart(2, "0");

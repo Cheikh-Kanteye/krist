@@ -82,7 +82,7 @@ const LoginForm = () => {
 
       <div className="my-3 flex justify-between items-center max-w-lg">
         <Checkbox>Remember me</Checkbox>
-        <Link href="/reset" className="text-base lg:text-lg">
+        <Link href="/resetpwd" className="text-base lg:text-lg">
           Forgot Password?
         </Link>
       </div>
@@ -91,6 +91,14 @@ const LoginForm = () => {
         className="max-w-lg"
         disabled={isSubmitting}
       />
+
+      <Link
+        href={"/signup"}
+        className=" max-w-lg text-center text-base lg:text-lg text-black/70"
+      >
+        Don&apos;t have account?{" "}
+        <span className="text-black font-semibold">Sign Up</span>
+      </Link>
     </form>
   );
 };

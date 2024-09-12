@@ -1,9 +1,7 @@
 "use client";
-
-import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Image from "next/image";
-import ColorThief from "colorthief";
+import { useDominantColor } from "@/hooks/useDominantColor";
 
 const CategorieCard = ({
   src,
@@ -14,32 +12,12 @@ const CategorieCard = ({
   label: string;
   className?: string;
 }) => {
-  const [bgColor, setBgColor] = useState<string>("transparent");
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const colorThief = new ColorThief();
-
-    const handleImageLoad = async () => {
-      if (imgRef.current && imgRef.current.complete) {
-        // Extraction synchronique de la couleur dominante
-        const dominantColor = await colorThief.getColor(imgRef.current);
-        setBgColor(`rgb(${dominantColor.join(",")})`);
-      }
-    };
-
-    if (imgRef.current?.complete) {
-      handleImageLoad(); // Vérifie si l'image est déjà chargée
-    } else {
-      imgRef.current?.addEventListener("load", handleImageLoad);
-      return () => imgRef.current?.removeEventListener("load", handleImageLoad);
-    }
-  }, [src]);
+  const { bgColor, imgRef } = useDominantColor(src);
 
   return (
     <div
       className={`default-card-style ${className}`}
-      style={{ backgroundColor: bgColor }}
+      style={{ backgroundColor: bgColor || "lightgoldenrodyellow" }}
     >
       <span className="absolute top-4 text-5xl font-bold text-white/70 uppercase text-balance -z-20">
         {label}

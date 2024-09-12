@@ -10,6 +10,7 @@ import { MobileNavbar } from "./MobileNavbar";
 import { NavItem } from "./Navitem";
 import NavItemDropDown from "./NavItemDropDown";
 import { NavItemList } from "@/constants";
+import { useRouter } from "next/navigation";
 
 const ActionGroup = () => {
   const actions = [
@@ -30,9 +31,16 @@ const ActionGroup = () => {
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDropdown, setShowDropDowm] = useState(false);
+
+  const router = useRouter();
+
   function toggleMenu() {
     setShowMenu((prev) => !prev);
   }
+  function toggleDropDown(action: string) {
+    if (action === "openDropdown") setShowDropDowm((prev) => !prev);
+  }
+
   return (
     <header className="px-[2rem] sm:px-[6vw] lg:px-[9vw] sticky top-0 z-50 bg-white flex justify-between items-center h-20">
       <Link href={"/"}>
@@ -52,15 +60,16 @@ const Header = () => {
             label={item.label}
             href={item.href}
             key={index}
-            onClick={() => {
-              if (item.action === "openDropdown")
-                setShowDropDowm((prev) => !prev);
-            }}
+            onClick={() => toggleDropDown(item.action!)}
           />
         ))}
       </div>
 
-      <MobileNavbar showMenu={showMenu} toggleMenu={toggleMenu} />
+      <MobileNavbar
+        showMenu={showMenu}
+        toggleMenu={toggleMenu}
+        toggleDropdown={toggleDropDown}
+      />
 
       {showDropdown && (
         <NavItemDropDown handleClose={() => setShowDropDowm(false)} />
@@ -74,7 +83,11 @@ const Header = () => {
           onClick={toggleMenu}
           className="block lg:hidden p-2 aspect-square rounded-full bg-slate-50 lg:hover:bg-slate-100 duration-300"
         />
-        <Button label="Login" className="w-fit px-6 h-12 hidden lg:block" />
+        <Button
+          label="Login"
+          className="w-fit px-6 h-12 hidden lg:block"
+          onClick={() => router.push("/login")}
+        />
       </div>
     </header>
   );

@@ -7,8 +7,10 @@ import { NavItemList } from "@/constants";
 export const MobileNavbar = ({
   showMenu,
   toggleMenu,
+  toggleDropdown,
 }: {
   showMenu: boolean;
+  toggleDropdown: (action: string) => void;
   toggleMenu: () => void;
 }) => {
   return (
@@ -25,7 +27,12 @@ export const MobileNavbar = ({
           className="absolute top-6 right-6 p-2 aspect-square rounded-full bg-slate-50 lg:hover:bg-slate-100 duration-300"
         />
         {NavItemList.map((item, index) => (
-          <NavItem label={item.label} href={item.href} key={index} />
+          <NavItem
+            label={item.label}
+            href={item.href}
+            key={index}
+            onClick={() => toggleDropdown(item.action!)}
+          />
         ))}
         <Button label="Login" className="w-fit px-8 h-12" />
       </nav>

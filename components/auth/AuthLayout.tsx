@@ -21,8 +21,8 @@ const AuthLayout = ({
         <Image
           src={img}
           alt="cover"
-          width={400}
-          height={400}
+          width={1000}
+          height={1000}
           className="w-full h-dvh object-cover"
         />
         <div className="absolute inset-0 bg-black/10" />

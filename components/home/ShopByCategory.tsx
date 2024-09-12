@@ -50,7 +50,7 @@ const ShopByCategory = () => {
               key={index}
               src={category.img}
               label={category.label}
-              className="w-[80vw] md:w-[40vw] lg:w-[25vw]" // Responsive styles
+              className="min-w-[15rem] w-[80vw] md:w-[40vw] lg:w-[25vw]" // Responsive styles
             />
           ))}
         </div>

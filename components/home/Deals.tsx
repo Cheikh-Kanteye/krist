@@ -1,11 +1,21 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import useCountdown from "@/hooks/useCountdown";
 import { CounterBox } from "../ui/CounterBox";
 
 const Deals = () => {
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   const targetDate = new Date("2024-09-30T23:59:59");
   const { days, hours, minutes, seconds } = useCountdown(targetDate);
+
+  if (!isHydrated) {
+    return null;
+  }
 
   return (
     <section className="grid-container grid lg:grid-cols-2 py-12">
@@ -17,11 +27,11 @@ const Deals = () => {
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters.
         </p>
-        <div className="grid grid-cols-4 gap-3 py-4 max-w-sm">
-          <CounterBox label="days" value={days.toString()} />
-          <CounterBox label="hours" value={hours.toString()} />
-          <CounterBox label="mins" value={minutes.toString()} />
-          <CounterBox label="secs" value={seconds.toString()} />
+        <div className="grid grid-cols-4 gap-3 py-4">
+          <CounterBox label="days" value={days} />
+          <CounterBox label="hours" value={hours} />
+          <CounterBox label="mins" value={minutes} />
+          <CounterBox label="secs" value={seconds} />
         </div>
       </div>
       <div></div>

@@ -27,7 +27,7 @@ const UserSchema = z.object({
     .regex(/[a-z]/, "Lowercase letter required.")
     .regex(/[A-Z]/, "Uppercase letter required.")
     .regex(/[0-9]/, "Digit required.")
-    .regex(/[@$!%*?&]/, "Special character required."),
+    .regex(/\W/, "Special character required."),
 });
 
 export default UserSchema;

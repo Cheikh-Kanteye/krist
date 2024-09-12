@@ -31,7 +31,7 @@ const CategoryItem = ({
 }) => (
   <div
     className={`p-4 ${categorie === "Kids" ? "row-span-2" : "row-span-1"} ${
-      !isLastInRow ? "border-r border-gray-200" : ""
+      !isLastInRow ? "lg:border-r border-gray-200" : ""
     }`}
   >
     <h5 className="text-lg font-semibold text-black capitalize mb-2">
@@ -45,11 +45,11 @@ const NavItemDropDown = ({ handleClose }: { handleClose: () => void }) => {
   return (
     <div
       onClick={handleClose}
-      className="absolute inset-0 pt-24 h-screen z-50 flex justify-center bg-black/10 p-4 py-6 dropdowm"
+      className="absolute inset-0 pt-16 md:pt-20 lg:pt-24 h-screen z-50 flex justify-center bg-black/10 p-4 py-6 dropdowm"
     >
       <div
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
-        className="max-w-screen-lg p-4 w-full h-fit bg-white grid grid-cols-4 border rounded-lg border-gray-200 menu"
+        className="max-w-screen-lg p-4 w-full h-fit bg-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border rounded-lg border-gray-200 menu overflow-y-auto lg:overflow-hidden"
       >
         {ProductsCategories.map((item, index) => (
           <CategoryItem

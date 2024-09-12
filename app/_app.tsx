@@ -7,7 +7,7 @@ import React, { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
 
 // Define routes where header and footer should be hidden
-const hideHeaderFooterRoutes = ["/signup", "/login", "/reset"];
+const hideHeaderFooterRoutes = ["/signup", "/login", "/resetpwd"];
 
 function getRouteBasedData(pathname: string) {
   return {

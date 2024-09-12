@@ -179,10 +179,6 @@ export const CategrorieSlides = [
     img: "/images/img1.png",
   },
   {
-    label: "Western wear",
-    img: "/images/img2.png",
-  },
-  {
     label: "Ethnic wear",
     img: "/images/img3.png",
   },
@@ -195,12 +191,20 @@ export const CategrorieSlides = [
     img: "/images/img6.png",
   },
   {
+    label: "Western wear",
+    img: "/images/img2.png",
+  },
+  {
     label: "Women",
     img: "/images/img7.png",
   },
   {
     label: "men",
     img: "/images/img5.png",
+  },
+  {
+    label: "Festive wear",
+    img: "/images/img8.png",
   },
 ];
 

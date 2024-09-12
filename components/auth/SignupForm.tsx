@@ -7,6 +7,7 @@ import InputField from "../ui/InputField";
 import Checkbox from "../ui/Checkbox";
 import { z } from "zod";
 import UserSchema from "./schema/UserSchema";
+import Link from "next/link";
 
 // Type inference from the schema
 type UserFormValues = z.infer<typeof UserSchema>;
@@ -29,7 +30,7 @@ const SignupForm = () => {
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Inscription réussie !");
         router.push("/login");
       } else {
@@ -91,6 +92,13 @@ const SignupForm = () => {
         className="max-w-lg"
         disabled={isSubmitting}
       />
+      <Link
+        href={"/login"}
+        className=" max-w-lg text-center text-base lg:text-lg text-black/70"
+      >
+        Already have account?{" "}
+        <span className="text-black font-semibold">Log in</span>
+      </Link>
     </form>
   );
 };

@@ -9,7 +9,7 @@ const Login = async () => {
 
   if (session) redirect("/");
   return (
-    <AuthLayout img="/images/login_img.png">
+    <AuthLayout img="/images/login_img.jpg">
       <LoginForm />
     </AuthLayout>
   );
