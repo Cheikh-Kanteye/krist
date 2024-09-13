@@ -1,8 +1,11 @@
+"use client";
+
 import { IconBtn } from "./IconBtn";
 import { IoClose } from "react-icons/io5";
 import Button from "./ui/Button";
 import { NavItem } from "./Navitem";
 import { NavItemList } from "@/constants";
+import { useRouter } from "next/navigation";
 
 export const MobileNavbar = ({
   showMenu,
@@ -13,6 +16,7 @@ export const MobileNavbar = ({
   toggleDropdown: (action: string) => void;
   toggleMenu: () => void;
 }) => {
+  const router = useRouter();
   return (
     <div
       className={`fixed z-50 top-0 right-0 h-screen w-[260px] bg-white shadow-lg duration-300 transition-transform ${
@@ -34,7 +38,11 @@ export const MobileNavbar = ({
             onClick={() => toggleDropdown(item.action!)}
           />
         ))}
-        <Button label="Login" className="w-fit px-8 h-12" />
+        <Button
+          label="Login"
+          className="w-fit px-8 h-12"
+          onClick={() => router.push("/login")}
+        />
       </nav>
     </div>
   );
