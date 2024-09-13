@@ -19,7 +19,7 @@ const Footer = () => {
     <footer className="text-white pt-12">
       <Infos />
       <div className="bg-black pt-10">
-        <div className="grid-container flex justify-between flex-wrap gap-4">
+        <div className="grid-container flex justify-between flex-wrap gap-6">
           <Section title="Contact">
             <Logo inverted />
             <ContactInfos />
