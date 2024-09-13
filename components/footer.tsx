@@ -40,7 +40,7 @@ const Footer = () => {
               name="email"
               type="email"
               className="border-2 border-white px-3"
-              inputClassName="bg-transparent focus:ring-0 focus:outline-0"
+              inputClassName="focus:ring-0 focus:outline-none"
               iconLeft={LuMail}
               iconRight={LuArrowRight}
             />

@@ -20,7 +20,6 @@ interface InputFieldProps {
     | undefined;
 }
 
-// Using forwardRef to pass the ref to the input element
 const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
   (
     {
@@ -42,32 +41,37 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     const handleBlur = () => setIsFocused(false);
 
     return (
-      <>
+      <div className="max-w-lg">
         <div
           className={cn(
-            `mt-4 rounded-lg max-w-lg flex gap-2 w-fit items-center border border-black h-14 ${
+            `mt-4 relative rounded-lg flex items-center border border-black h-14 ${
               error ? "border-red-500" : ""
             }`,
             className
           )}
         >
           {IconLeft && (
-            <div className="w-8">
+            <div className="w-8 flex items-center justify-center">
               <IconLeft size={24} />
             </div>
           )}
-          <div className="relative">
+          <div className="flex-1">
             <input
               type={type}
               name={name}
-              ref={ref} // Attach the ref from react-hook-form
+              ref={ref}
               onFocus={handleFocus}
               onBlur={handleBlur}
-              className={cn(`flex-1 h-full`, inputClassName)}
-              {...rest} // Spread the rest of the props (e.g., required)
+              className={cn(
+                "w-full h-14 bg-transparent field rounded-lg px-4",
+                inputClassName
+              )}
+              {...rest}
             />
             <label
-              className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-all duration-300 pointer-events-none ${
+              className={`absolute ${
+                !IconLeft ? "left-3" : "left-12"
+              } top-1/2 transform -translate-y-1/2 transition-all duration-300 pointer-events-none ${
                 isFocused || (rest as any).value
                   ? "-translate-y-14 text-base text-gray-500"
                   : "text-base"
@@ -77,13 +81,15 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             </label>
           </div>
           {IconRight && (
-            <div>
+            <div className="w-8 flex items-center justify-center">
               <IconRight size={24} />
             </div>
           )}
         </div>
-        {error && <p className="text-sm text-red-500">{error.toString()}</p>}
-      </>
+        {error && (
+          <p className="text-sm text-red-500 mt-1">{error.toString()}</p>
+        )}
+      </div>
     );
   }
 );

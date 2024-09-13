@@ -11,7 +11,7 @@ import { NavItem } from "./Navitem";
 import NavItemDropDown from "./NavItemDropDown";
 import { NavItemList } from "@/constants";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { getInitials } from "@/utils";
 import randomcolor from "randomcolor";
 import { Logo } from "./Logo";
@@ -43,6 +43,8 @@ const Avatar = ({ name }: { name: string }) => {
     <button
       className="w-10 aspect-square rounded-full text-center justify-center items-center flex"
       style={{ background: color }}
+      // TODO add dropdown menu
+      onClick={() => signOut()}
     >
       <span>{initials}</span>
     </button>
