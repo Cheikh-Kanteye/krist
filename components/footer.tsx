@@ -47,7 +47,7 @@ const Footer = () => {
           </Section>
         </div>
         <hr className="w-full h-px mt-6 bg-white/20 border-0" />
-        <div className="grid-container py-6 flex flex-wrap justify-between items-center">
+        <div className="grid-container py-6 gap-4 flex flex-wrap justify-center lg:justify-between items-center">
           <PaymentMethods />
           <p className="text-white/70">&copy;2023 Krist All Rights Reserved</p>
           <SocialLinks />

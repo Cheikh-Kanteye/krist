@@ -17,7 +17,7 @@ const AuthLayout = ({
         height={100}
         className="w-[150px] h-auto absolute top-8 left-8 z-50"
       />
-      <div className="h-full relative">
+      <div className="h-full relative hidden lg:block">
         <Image
           src={img}
           alt="cover"
