@@ -19,7 +19,7 @@ const Deals = () => {
   }
 
   return (
-    <section className="grid-container grid lg:grid-cols-2 gap-6 lg:gap-12 py-12 lg:items-center">
+    <section className="grid-container grid sm:grid-cols-2 gap-6 lg:gap-12 py-16 md:items-center">
       <div>
         <h2 className="text-3xl font-bold mb-4">Deals of the Month</h2>
         <p className="text-black/70 my-2">

@@ -1,3 +1,10 @@
+import { CiDollar } from "react-icons/ci";
+import { FiPhoneCall } from "react-icons/fi";
+import { GoCreditCard } from "react-icons/go";
+import { LuMail, LuMapPin } from "react-icons/lu";
+import { RiBox2Line, RiHeadphoneLine } from "react-icons/ri";
+import { TiLocationOutline } from "react-icons/ti";
+
 export const NavItemList = [
   { label: "home", href: "/" },
   { label: "shop", action: "openDropdown" },
@@ -268,3 +275,98 @@ export const ProductLists = [
 ];
 
 export type Product = (typeof ProductLists)[number];
+
+export const storiesData = [
+  { src: "/images/story2.jpg", alt: "Story 2", href: "#" },
+  { src: "/images/story1.jpg", alt: "Story 1", href: "#" },
+  { src: "/images/story3.jpg", alt: "Story 3", href: "#" },
+  { src: "/images/story4.jpg", alt: "Story 4", href: "#" },
+];
+
+export const infoItems = [
+  {
+    icon: RiBox2Line,
+    title: "Free Shipping",
+    description: "Free shipping for order above $150",
+  },
+  {
+    icon: CiDollar,
+    title: "Money Guarantee",
+    description: "within 30 days for an exchange",
+  },
+  {
+    icon: RiHeadphoneLine,
+    title: "Online Support",
+    description: "24 hours a day, 7 days a week",
+  },
+  {
+    icon: GoCreditCard,
+    title: "Flexible Payment",
+    description: "Pay with multiple credit card",
+  },
+];
+
+export const contactInfos = [
+  {
+    icon: FiPhoneCall,
+    value: "(704) 555-0127",
+  },
+  {
+    icon: LuMail,
+    value: "kriSt@example.com",
+  },
+  {
+    icon: TiLocationOutline,
+    value: "3891 Ranchview Dr, Richardson, California 62639",
+  },
+];
+
+export const informationLinks = [
+  {
+    label: "My Account",
+    href: "/account",
+  },
+  {
+    label: "My Cart",
+    href: "/cart",
+  },
+  {
+    label: "My Wishlist",
+    href: "/wishlist",
+  },
+  {
+    label: "Checkout",
+    href: "/checkout",
+  },
+];
+
+export const serviceLinks = [
+  {
+    label: "About Us",
+    href: "/about",
+  },
+  {
+    label: "Careers",
+    href: "/careers",
+  },
+  {
+    label: "Delivery Information",
+    href: "/delivery-information",
+  },
+  {
+    label: "Privacy Policy",
+    href: "/privacy-policy",
+  },
+  {
+    label: "Terms & Conditions",
+    href: "/terms-and-conditions",
+  },
+];
+
+export const paymentMethods = [
+  "/icons/visa.png",
+  "/icons/mastercard.png",
+  "/icons/google-pay.png",
+  "/icons/amex.png",
+  "/icons/pay-pal.png",
+];

@@ -1,24 +1,29 @@
 import { cn } from "@/utils";
-import { ButtonHTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends Omit<HTMLAttributes<HTMLButtonElement>, "iconRight"> {
   label?: string;
   iconRight?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const Button = (props: ButtonProps) => {
+  const { label, iconRight, disabled, className, ...rest } = props;
+
   return (
     <button
-      {...props}
+      {...rest}
       className={cn(
         `default-btn ${
-          !props.disabled ? "hover:bg-slate-900" : "cursor-not-allowed"
+          !disabled ? "hover:bg-slate-900" : "cursor-not-allowed"
         } transition-all duration-300`,
-        props.className
+        className
       )}
+      disabled={disabled}
     >
-      {props.label && props.label}
-      {props.iconRight && props.iconRight}
+      {label && label}
+      {iconRight && iconRight}
     </button>
   );
 };

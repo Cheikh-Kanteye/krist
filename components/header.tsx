@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { getInitials } from "@/utils";
 import randomcolor from "randomcolor";
+import { Logo } from "./Logo";
 
 const ActionGroup = () => {
   const actions = [
@@ -65,15 +66,7 @@ const Header = () => {
 
   return (
     <header className="px-[2rem] sm:px-[6vw] lg:px-[9vw] sticky top-0 z-50 bg-white flex justify-between items-center h-20">
-      <Link href={"/"}>
-        <Image
-          src={"/images/logo.png"}
-          alt="logo"
-          width={150}
-          height={80}
-          className="w-28 md:w-32 h-auto object-fit"
-        />
-      </Link>
+      <Logo />
 
       {/* NAVIGATION MENU */}
       <div className="hidden lg:flex gap-4 items-center">
