@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import useCountdown from "@/hooks/useCountdown";
 import { CounterBox } from "../ui/CounterBox";
+import Image from "next/image";
 
 const Deals = () => {
   const [isHydrated, setIsHydrated] = useState(false);
@@ -18,7 +19,7 @@ const Deals = () => {
   }
 
   return (
-    <section className="grid-container grid lg:grid-cols-2 py-12">
+    <section className="grid-container grid lg:grid-cols-2 gap-6 lg:gap-12 py-12 lg:items-center">
       <div>
         <h2 className="text-3xl font-bold mb-4">Deals of the Month</h2>
         <p className="text-black/70 my-2">
@@ -34,7 +35,15 @@ const Deals = () => {
           <CounterBox label="secs" value={seconds} />
         </div>
       </div>
-      <div></div>
+      <div className="w-full aspect-square bg-gray-100 overflow-hidden flex items-center pt-12 lg:pt-24">
+        <Image
+          src={"/images/deals.jpg"}
+          alt="deals"
+          width={1000}
+          height={1200}
+          className="w-full h-auto object-cover"
+        />
+      </div>
     </section>
   );
 };

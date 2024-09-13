@@ -2,8 +2,9 @@
 
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { SessionProvider } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
 
 // Define routes where header and footer should be hidden
@@ -19,12 +20,12 @@ const App = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
   const { hideHeaderFooter } = getRouteBasedData(pathname);
   return (
-    <>
+    <SessionProvider>
       {!hideHeaderFooter && <Header />}
       {children}
       <ToastContainer />
       {!hideHeaderFooter && <Footer />}
-    </>
+    </SessionProvider>
   );
 };
 

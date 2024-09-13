@@ -2,7 +2,8 @@
 import { HTMLAttributes } from "react";
 import { IconType } from "react-icons";
 
-interface IconBtnProps extends HTMLAttributes<HTMLButtonElement> {
+interface IconBtnProps
+  extends Omit<HTMLAttributes<HTMLButtonElement>, "color"> {
   icon: IconType;
   size?: number;
   color?: string;

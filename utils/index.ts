@@ -13,3 +13,14 @@ export const formatPrice = (price: number | null): string => {
     maximumFractionDigits: 2,
   }).format(price);
 };
+
+export const getInitials = (name: string): string => {
+  const nameParts = name.split(" ");
+  if (nameParts.length === 1) {
+    return nameParts[0][0].toUpperCase();
+  }
+  return (
+    nameParts[0][0].toUpperCase() +
+    nameParts[nameParts.length - 1][0].toUpperCase()
+  );
+};

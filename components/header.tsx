@@ -11,6 +11,9 @@ import { NavItem } from "./Navitem";
 import NavItemDropDown from "./NavItemDropDown";
 import { NavItemList } from "@/constants";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { getInitials } from "@/utils";
+import randomcolor from "randomcolor";
 
 const ActionGroup = () => {
   const actions = [
@@ -28,9 +31,28 @@ const ActionGroup = () => {
   );
 };
 
+const Avatar = ({ name }: { name: string }) => {
+  const initials = name ? getInitials(name) : "?";
+  const color = randomcolor({
+    luminosity: "light",
+    format: "rgba",
+    alpha: 0.3,
+  });
+  return (
+    <button
+      className="w-10 aspect-square rounded-full text-center justify-center items-center flex"
+      style={{ background: color }}
+    >
+      <span>{initials}</span>
+    </button>
+  );
+};
+
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDropdown, setShowDropDowm] = useState(false);
+
+  const { status, data } = useSession();
 
   const router = useRouter();
 
@@ -83,11 +105,15 @@ const Header = () => {
           onClick={toggleMenu}
           className="block lg:hidden p-2 aspect-square rounded-full bg-slate-50 lg:hover:bg-slate-100 duration-300"
         />
-        <Button
-          label="Login"
-          className="w-fit px-6 h-12 hidden lg:block"
-          onClick={() => router.push("/login")}
-        />
+        {status === "unauthenticated" ? (
+          <Button
+            label={"Login"}
+            className="w-fit px-6 h-12 hidden lg:block"
+            onClick={() => router.push("/login")}
+          />
+        ) : (
+          <Avatar name={data?.user?.email!} />
+        )}
       </div>
     </header>
   );
