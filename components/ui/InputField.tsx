@@ -41,7 +41,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     const handleBlur = () => setIsFocused(false);
 
     return (
-      <div className="max-w-lg">
+      <div className="max-w-lg w-full">
         <div
           className={cn(
             `mt-4 relative rounded-lg flex items-center border border-black h-14 ${
@@ -55,7 +55,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
               <IconLeft size={24} />
             </div>
           )}
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <input
               type={type}
               name={name}

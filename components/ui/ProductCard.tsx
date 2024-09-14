@@ -36,8 +36,10 @@ const ProductCard = ({
       </div>
 
       <div>
-        <h5 className="text-lg font-semibold">{product.label}</h5>
-        <p className="text-base text-black/70">{product.description}</p>
+        <h5 className="text-lg truncate font-semibold">{product.label}</h5>
+        <p className="truncate  md:text-base text-black/70">
+          {product.description}
+        </p>
         <div className="flex gap-2">
           <strong className="text-black">
             {formatPrice(product.currentPrice)}

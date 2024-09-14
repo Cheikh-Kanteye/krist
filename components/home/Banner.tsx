@@ -15,7 +15,7 @@ const Banner = () => {
             <span className="text-xl sm:text-2xl lg:text-3xl">
               Classic Exclusive
             </span>
-            <h1 className="font-semibold text-3xl sm:text-4xl lg:text-5xl leading-relaxed">
+            <h1 className="font-semibold text-2xl sm:text-4xl lg:text-5xl md:leading-relaxed">
               Woman Collection
             </h1>
             <span className="text-xl sm:text-xl lg:text-3xl">
@@ -25,8 +25,8 @@ const Banner = () => {
             <Button
               label="Shop Now"
               iconRight={<BsArrowRight color="white" size={22} />}
-              className="!w-fit px-6 self-start mt-6 hover:-translate-y-0.5"
-              style={{ backgroundColor: bgColor }}
+              className="!w-fit px-4 lg:px-6 self-start mt-6 hover:-translate-y-0.5"
+              style={{ backgroundColor: bgColor ?? "black" }}
             />
           </div>
 
@@ -45,6 +45,7 @@ const Banner = () => {
 
           <Image
             src={"/images/banner.png"}
+            ref={imgRef}
             alt="Banner"
             width={700}
             height={800}

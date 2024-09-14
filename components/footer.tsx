@@ -20,10 +20,12 @@ const Footer = () => {
       <Infos />
       <div className="bg-black pt-10">
         <div className="grid-container flex justify-between flex-wrap gap-6">
-          <Section title="Contact">
-            <Logo inverted />
-            <ContactInfos />
-          </Section>
+          <div>
+            <Logo inverted className="mb-4" />
+            <Section title="Contact">
+              <ContactInfos />
+            </Section>
+          </div>
           <Section title="Informations">
             <LinksList links={informationLinks} />
           </Section>

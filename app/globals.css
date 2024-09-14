@@ -46,7 +46,7 @@
   }
 
   .default-card-style {
-    @apply card h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
+    @apply card h-[14rem] md:h-[18rem] lg:h-[20rem] relative p-4 flex items-end bg-gray-100 z-0 rounded-md overflow-hidden;
   }
 
   .section-title {
