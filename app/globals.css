@@ -72,6 +72,10 @@
     @apply w-9 h-9 aspect-square justify-center items-center bg-white !text-black shadow-sm hover:bg-white/70 backdrop-blur-md !rounded-full;
   }
 
+  .horizontal-card-icon {
+    @apply !w-9 !h-9 aspect-square !rounded-full !bg-black/10;
+  }
+
   .default-btn {
     @apply h-14 bg-black text-center w-full text-white flex items-center gap-2 rounded-lg text-lg justify-center;
   }
@@ -98,6 +102,10 @@
 
   .field:focus ~ label {
     left: 12px !important;
+  }
+
+  .filter-btn {
+    @apply flex items-center justify-between w-full cursor-pointer hover:bg-gray-50 p-2 rounded-md;
   }
 }
 
@@ -134,4 +142,16 @@
     scrollbar-width: thin;
     scrollbar-color: black rgb(0 0 0 / 0.1);
   }
+}
+
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  overflow: visible;
+  cursor: pointer;
 }

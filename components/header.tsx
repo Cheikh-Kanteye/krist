@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { BiHeart, BiSearch, BiShoppingBag } from "react-icons/bi";
 import Button from "./ui/Button";
@@ -11,10 +9,9 @@ import { NavItem } from "./Navitem";
 import NavItemDropDown from "./NavItemDropDown";
 import { NavItemList } from "@/constants";
 import { useRouter } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
-import { getInitials } from "@/utils";
-import randomcolor from "randomcolor";
+import { useSession } from "next-auth/react";
 import { Logo } from "./Logo";
+import Avatar from "./ui/Avatar";
 
 const ActionGroup = () => {
   const actions = [
@@ -29,25 +26,6 @@ const ActionGroup = () => {
         <IconBtn key={index} icon={icon} size={24} />
       ))}
     </div>
-  );
-};
-
-const Avatar = ({ name }: { name: string }) => {
-  const initials = name ? getInitials(name) : "?";
-  const color = randomcolor({
-    luminosity: "light",
-    format: "rgba",
-    alpha: 0.3,
-  });
-  return (
-    <button
-      className="w-10 aspect-square rounded-full text-center justify-center items-center flex"
-      style={{ background: color }}
-      // TODO add dropdown menu
-      onClick={() => signOut()}
-    >
-      <span>{initials}</span>
-    </button>
   );
 };
 

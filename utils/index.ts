@@ -1,9 +1,25 @@
 export function cn(
-  ...classes: (string | undefined | null | boolean)[]
+  ...classes: (
+    | string
+    | undefined
+    | null
+    | boolean
+    | { [key: string]: boolean }
+  )[]
 ): string {
-  return classes.filter(Boolean).join(" ");
+  return classes
+    .flatMap((item) => {
+      if (typeof item === "string") return item;
+      if (typeof item === "object" && item !== null) {
+        return Object.entries(item)
+          .filter(([_, value]) => Boolean(value))
+          .map(([key]) => key);
+      }
+      return [];
+    })
+    .filter(Boolean)
+    .join(" ");
 }
-
 export const formatPrice = (price: number | null): string => {
   if (price === null) return "";
   return new Intl.NumberFormat("en-US", {

@@ -4,8 +4,10 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import { BsArrowRight } from "react-icons/bs";
 import { useDominantColor } from "@/hooks/useDominantColor";
+import { useRouter } from "next/navigation";
 
 const Banner = () => {
+  const router = useRouter();
   const { bgColor, imgRef } = useDominantColor("/images/banner.png");
   return (
     <section className="px-4 h-[45dvh] sm:h-[60dvh] lg:h-[85dvh]">
@@ -26,7 +28,8 @@ const Banner = () => {
               label="Shop Now"
               iconRight={<BsArrowRight color="white" size={22} />}
               className="!w-fit px-4 lg:px-6 self-start mt-6 hover:-translate-y-0.5"
-              style={{ backgroundColor: bgColor ?? "black" }}
+              style={{ backgroundColor: bgColor ? bgColor : "black" }}
+              onClick={() => router.push("/products-listing")}
             />
           </div>
 

@@ -1,16 +1,33 @@
 import React from "react";
 
-const Checkbox = ({ children }: { children?: React.ReactNode }) => {
+interface CheckboxProps {
+  id: string;
+  name: string;
+  value: string;
+  checked?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  children?: React.ReactNode;
+}
+
+const Checkbox: React.FC<CheckboxProps> = ({
+  id,
+  name,
+  value,
+  checked = false,
+  onChange,
+  children,
+}) => {
   return (
     <div className="inline-flex items-center">
-      <label
-        className="relative flex items-center py-3  rounded-full cursor-pointer"
-        htmlFor="check"
-      >
+      <div className="relative flex items-center rounded-full cursor-pointer">
         <input
           type="checkbox"
+          id={id}
+          name={name}
+          value={value}
+          checked={checked}
+          onChange={onChange}
           className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
-          id="check"
         />
         <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
           <svg
@@ -28,10 +45,10 @@ const Checkbox = ({ children }: { children?: React.ReactNode }) => {
             />
           </svg>
         </span>
-      </label>
+      </div>
       <label
         className="mt-px ml-2 font-normal text-gray-800 cursor-pointer select-none"
-        htmlFor="check"
+        htmlFor={id}
       >
         {children}
       </label>
