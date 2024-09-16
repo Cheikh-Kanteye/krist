@@ -10,6 +10,7 @@ import Checkbox from "../ui/Checkbox";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 // Zod schema definition
 const loginSchema = z.object({
@@ -24,6 +25,7 @@ type LoginFormInputs = {
 };
 
 const LoginForm = () => {
+  const [remember, setRemember] = useState("false");
   const router = useRouter();
   const {
     register,
@@ -81,7 +83,14 @@ const LoginForm = () => {
       />
 
       <div className="my-3 flex justify-between items-center max-w-lg">
-        <Checkbox>Remember me</Checkbox>
+        <Checkbox
+          id="reminder"
+          value={remember}
+          name="reminder"
+          onChange={(e) => setRemember(e.target.value)} //TODO corriger le setState
+        >
+          Remember me
+        </Checkbox>
         <Link href="/resetpwd" className="text-base lg:text-lg">
           Forgot Password?
         </Link>
