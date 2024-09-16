@@ -8,11 +8,13 @@ import Checkbox from "../ui/Checkbox";
 import { z } from "zod";
 import UserSchema from "./schema/UserSchema";
 import Link from "next/link";
+import { useState } from "react";
 
 // Type inference from the schema
 type UserFormValues = z.infer<typeof UserSchema>;
 
 const SignupForm = () => {
+  const [acceptTerms, setAccepTerms] = useState("false");
   const router = useRouter();
   const {
     register,
@@ -83,7 +85,7 @@ const SignupForm = () => {
         error={errors.password?.message}
       />
 
-      <Checkbox>
+      <Checkbox id="reminder" value={acceptTerms} name="reminder">
         I agree to the <strong>Terms & Conditions</strong>
       </Checkbox>
 
