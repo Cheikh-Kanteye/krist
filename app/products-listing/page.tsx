@@ -28,7 +28,7 @@ const ProductListing = () => {
               onClick={() => setShowMenu(false)}
             />
           )}
-          <div className="flex">
+          <div className="flex lg:relative">
             <ProductFilter
               showMenu={showMenu}
               closeMenu={() => setShowMenu(false)}

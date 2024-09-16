@@ -5,16 +5,31 @@ import { Product } from "@/constants";
 import { cn, formatPrice } from "@/utils";
 import Button from "../ui/Button";
 
-const ProductHroizontalCard = ({
-  product,
-  className,
-}: {
+type IconType = "star" | "arrow" | "eye";
+
+const iconComponents: Record<IconType, JSX.Element> = {
+  star: <RiStarLine />,
+  arrow: <RiArrowLeftRightLine />,
+  eye: <RiEyeLine />,
+};
+
+interface ProductHorizontalCardProps {
   product: Product;
   className?: string;
-}) => {
+}
+
+const ProductHorizontalCard = ({
+  product,
+  className,
+}: ProductHorizontalCardProps) => {
   return (
-    <div className="flex gap-3 rounded-lg w-full p-3 sm:h-40  bg-gray-50 overflow-hidden">
-      <div className="h-full aspect-square">
+    <div
+      className={cn(
+        "flex gap-3 p-3 rounded-lg bg-gray-50 overflow-hidden",
+        className
+      )}
+    >
+      <div className="aspect-square h-full">
         <Image
           src={product.src}
           alt={product.label}
@@ -23,40 +38,40 @@ const ProductHroizontalCard = ({
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="flex flex-1 flex-col justify-between">
+      <div className="flex flex-1 flex-col gap-3 justify-between">
         <div>
-          <h5 className="text-lg truncate font-semibold">{product.label}</h5>
-          <p className="truncate  md:text-base text-black/70">
+          <h5 className="text-lg font-semibold truncate w-full">
+            {product.label}
+          </h5>
+          <p className="text-black/70 truncate md:text-base max-w-[15ch]">
             {product.description}
           </p>
           <div className="flex gap-2">
             <strong className="text-black">
               {formatPrice(product.currentPrice)}
             </strong>
-            <strong className="line-through text-black/20">
-              {formatPrice(product.originalPrice)}
-            </strong>
+            {product.originalPrice && (
+              <strong className="line-through text-black/20">
+                {formatPrice(product.originalPrice)}
+              </strong>
+            )}
           </div>
         </div>
-
-        <div className="flex flex-wrap w-full items-center justify-between">
-          <div className="flex gap-1 lg:gap-2 items-center">
-            <Button
-              iconRight={<RiStarLine />}
-              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
-            />
-            <Button
-              iconRight={<RiArrowLeftRightLine />}
-              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
-            />
-            <Button
-              iconRight={<RiEyeLine />}
-              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
-            />
+        <div className="flex flex-row flex-wrap items-center gap-2 justify-between">
+          <div className="gap-1 lg:gap-2 items-center flex">
+            {(["star", "arrow", "eye"] as IconType[]).map((icon) => (
+              <button
+                key={icon}
+                className="p-2 bg-black/5 rounded hover:bg-black/10"
+              >
+                {iconComponents[icon]}
+              </button>
+            ))}
           </div>
+
           <Button
-            label={"Add to Cart"}
-            className="px-3 lg:px-4 h-11 w-fit text-sm md:text-base"
+            label="Add to Cart"
+            className="px-3 lg:px-4 h-11 w-full text-sm md:text-base"
           />
         </div>
       </div>
@@ -64,4 +79,4 @@ const ProductHroizontalCard = ({
   );
 };
 
-export default ProductHroizontalCard;
+export default ProductHorizontalCard;

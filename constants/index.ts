@@ -224,6 +224,7 @@ export const ProductLists = [
     originalPrice: 40.0,
     category: "men",
     size: "M",
+    colors: ["red", "blue", "green"], // Example colors
   },
   {
     src: "/images/product-2.png",
@@ -232,7 +233,8 @@ export const ProductLists = [
     currentPrice: 80.0,
     originalPrice: 100.0,
     category: "bags",
-    size: "N/A", // Taille non applicable pour les sacs
+    size: "N/A",
+    colors: ["black", "orange"], // Example colors
   },
   {
     src: "/images/product-3.png",
@@ -242,6 +244,7 @@ export const ProductLists = [
     originalPrice: 55.0,
     category: "men",
     size: "L",
+    colors: ["blue", "red"], // Example colors
   },
   {
     src: "/images/product-4.png",
@@ -250,7 +253,8 @@ export const ProductLists = [
     currentPrice: 60.0,
     originalPrice: null,
     category: "men",
-    size: "42", // Taille pour les chaussures
+    size: "42",
+    colors: ["black", "green"], // Example colors
   },
   {
     src: "/images/product-6.png",
@@ -260,6 +264,7 @@ export const ProductLists = [
     originalPrice: 45.0,
     category: "women",
     size: "S",
+    colors: ["yellow", "blue"], // Example colors
   },
   {
     src: "/images/product-7.png",
@@ -269,6 +274,7 @@ export const ProductLists = [
     originalPrice: 100.0,
     category: "kids",
     size: "XS",
+    colors: ["pink"], // Example colors
   },
   {
     src: "/images/product-8.png",
@@ -278,6 +284,7 @@ export const ProductLists = [
     originalPrice: 50.0,
     category: "men",
     size: "M",
+    colors: ["blue", "red"], // Example colors
   },
   {
     src: "/images/product-5.png",
@@ -286,7 +293,38 @@ export const ProductLists = [
     currentPrice: 35.0,
     originalPrice: 40.0,
     category: "women",
-    size: "38", // Taille pour les sandales
+    size: "38",
+    colors: ["black", "orange"], // Example colors
+  },
+  {
+    src: "/images/product-4.png",
+    label: "Adidas",
+    description: "Men adi-dash Running Shoes",
+    currentPrice: 60.0,
+    originalPrice: null,
+    category: "men",
+    size: "42",
+    colors: ["black", "green"], // Example colors
+  },
+  {
+    src: "/images/product-6.png",
+    label: "Trendyol",
+    description: "Floral Embroidered Maxi Dress",
+    currentPrice: 35.0,
+    originalPrice: 45.0,
+    category: "women",
+    size: "S",
+    colors: ["yellow", "blue"], // Example colors
+  },
+  {
+    src: "/images/product-7.png",
+    label: "YK Disney",
+    description: "Girls Pink Moana Printed Dress",
+    currentPrice: 80.0,
+    originalPrice: 100.0,
+    category: "kids",
+    size: "XS",
+    colors: ["pink"], // Example colors
   },
 ];
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { AvailableColors, Product } from "@/constants";
 import React, { useState } from "react";
 import ProductFilterBase from "./ProductFilterBase";

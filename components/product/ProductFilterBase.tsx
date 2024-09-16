@@ -49,6 +49,11 @@ const ProductFilterBase: React.FC<ProductFilterBaseProps> = ({
         label.toLowerCase() === "sizes"
           ? updatedSelectedOptions // Utiliser updatedSelectedOptions pour avoir la bonne valeur
           : prev.selectedSizes,
+
+      selectedColors:
+        label.toLowerCase() === "colors"
+          ? updatedSelectedOptions
+          : prev.selectedColors,
     }));
   };
 

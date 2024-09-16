@@ -5,6 +5,7 @@ interface FilterProps {
 interface FilterCriteria {
   selectedCategories?: string[];
   selectedSizes?: string[];
+  selectedColors?: string[];
 }
 
 interface ProductContextType {

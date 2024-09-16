@@ -22,7 +22,7 @@ const ProductFilter = ({
   return (
     <aside
       className={cn(
-        "transition-all duration-300 w-60 p-4 flex flex-col gap-3 max-lg:fixed h-screen max-lg:top-0 -left-full max-lg:overflow-y-auto max-lg:py-12 bg-white max-lg:z-50",
+        "pfilter transition-all duration-300 w-60 p-4 flex flex-col gap-3 max-lg:fixed h-screen max-lg:top-0 -left-full overflow-y-auto max-lg:py-12 bg-white max-lg:z-50",
         { "max-lg:left-0": showMenu }
       )}
     >
@@ -41,12 +41,13 @@ const ProductFilter = ({
           setCriteria({
             selectedCategories: [],
             selectedSizes: [],
+            selectedColors: [],
           })
         }
       />
       <Button
         label="Hide filter"
-        className="py-3"
+        className="py-3 lg:hidden"
         onClick={closeMenu}
         variant="outline"
       />

@@ -28,6 +28,16 @@ const useProductFilter = (criteria: FilterCriteria): Product[] => {
       });
     }
 
+    if (criteria.selectedColors && criteria.selectedColors.length > 0) {
+      filtered = filtered.filter((product) => {
+        // Check if any of the product colors match the selected colors
+        const colorMatches = product.colors.some((color) =>
+          criteria.selectedColors?.includes(color)
+        );
+        return colorMatches;
+      });
+    }
+
     return filtered;
   };
 
