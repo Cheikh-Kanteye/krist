@@ -1,25 +1,31 @@
 import { Product, ProductLists } from "@/constants";
 
-type FilterCriteria = {
-  selectedCategories?: string[];
-  selectedSizes?: string[];
-};
-
 const useProductFilter = (criteria: FilterCriteria): Product[] => {
-  // Encapsuler le filtrage dans une fonction pour éviter des effets secondaires inattendus
+  console.log("Current filter criteria:", { criteria });
+
   const filterProducts = (): Product[] => {
     let filtered = ProductLists;
 
+    // Filtrage par catégories
     if (criteria.selectedCategories && criteria.selectedCategories.length > 0) {
-      filtered = filtered.filter((product) =>
-        criteria.selectedCategories!.includes(product.category)
-      );
+      filtered = filtered.filter((product) => {
+        const categoryMatches = criteria.selectedCategories?.includes(
+          product.category
+        );
+        console.log(criteria.selectedCategories?.includes("women"));
+        return categoryMatches;
+      });
     }
 
+    // Filtrage par tailles
     if (criteria.selectedSizes && criteria.selectedSizes.length > 0) {
-      filtered = filtered.filter((product) =>
-        criteria.selectedSizes!.includes(product.size)
-      );
+      filtered = filtered.filter((product) => {
+        const sizeMatches = criteria.selectedSizes?.includes(product.size);
+        console.log(
+          `Filtering product "${product.label}" by size "${product.size}": ${sizeMatches}`
+        );
+        return sizeMatches;
+      });
     }
 
     return filtered;

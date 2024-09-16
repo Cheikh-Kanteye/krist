@@ -33,7 +33,7 @@ const ProductViewToggle = ({
         <TbListDetails size={24} color="black" />
       </button>
 
-      <span>Showing 1 - 16 of 72 results</span>
+      <span className="max-sm:hidden">Showing 1 - 16 of 72 results</span>
     </div>
   );
 };

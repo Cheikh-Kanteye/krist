@@ -2,7 +2,7 @@
 import { RiArrowLeftRightLine, RiEyeLine, RiStarLine } from "react-icons/ri";
 import Image from "next/image";
 import { Product } from "@/constants";
-import { formatPrice } from "@/utils";
+import { cn, formatPrice } from "@/utils";
 import Button from "../ui/Button";
 
 const ProductHroizontalCard = ({
@@ -13,7 +13,7 @@ const ProductHroizontalCard = ({
   className?: string;
 }) => {
   return (
-    <div className="flex gap-3 rounded-lg w-full p-3 h-40 bg-gray-50 overflow-hidden">
+    <div className="flex gap-3 rounded-lg w-full p-3 sm:h-40  bg-gray-50 overflow-hidden">
       <div className="h-full aspect-square">
         <Image
           src={product.src}
@@ -39,22 +39,25 @@ const ProductHroizontalCard = ({
           </div>
         </div>
 
-        <div className="flex w-full items-center justify-between">
-          <div className="flex gap-2 items-center">
+        <div className="flex flex-wrap w-full items-center justify-between">
+          <div className="flex gap-1 lg:gap-2 items-center">
             <Button
               iconRight={<RiStarLine />}
-              className="horizontal-card-icon"
+              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
             />
             <Button
               iconRight={<RiArrowLeftRightLine />}
-              className="horizontal-card-icon"
+              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
             />
             <Button
               iconRight={<RiEyeLine />}
-              className="horizontal-card-icon"
+              className={cn("horizontal-card-icon", "max-lg:w-8 max-lg:h-8")}
             />
           </div>
-          <Button label={"Add to Cart"} className="px-4 w-fit" />
+          <Button
+            label={"Add to Cart"}
+            className="px-3 lg:px-4 h-11 w-fit text-sm md:text-base"
+          />
         </div>
       </div>
     </div>

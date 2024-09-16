@@ -14,7 +14,7 @@ const Avatar = ({ name }: { name: string }) => {
   return (
     <button
       className="w-10 aspect-square rounded-full text-center justify-center items-center flex"
-      style={{ background: color }}
+      style={{ backgroundColor: color }}
       // TODO add dropdown menu
       onClick={() => signOut()}
     >

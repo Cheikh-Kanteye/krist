@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FilterLayout from "./FilterLayout";
 import SliderRange from "../SliderRange";
-import { ProductLists } from "@/constants";
 
-interface ProductPriceFilterProps extends FilterProps {}
-const ProductPriceFilter: React.FC<ProductPriceFilterProps> = ({
-  handleFilterProduct,
-}) => {
-  // const prices = ProductLists.map((p) => p.currentPrice);
+const ProductPriceFilter = () => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(2000);
   return (

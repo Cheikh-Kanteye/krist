@@ -11,7 +11,7 @@ const InfoItem = ({
   description: string;
 }) => {
   return (
-    <div className="flex flex-col items-center sm:items-start">
+    <div className="flex flex-col items-center text-center sm:text-start sm:items-start">
       <Icon size={34} color="black" />
       <h5 className="text-lg lg:text-xl mt-3 text-black font-semibold">
         {title}

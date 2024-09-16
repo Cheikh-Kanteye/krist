@@ -1,14 +1,12 @@
-import { Product } from "@/constants";
+import { useProductFilterContext } from "@/hooks/useProductFilterContext";
 import ProductHroizontalCard from "./ProductHorizontalCard";
 
-interface ProductGridProps {
-  products: Product[];
-}
+const ProductGrid = () => {
+  const { filteredProducts } = useProductFilterContext();
 
-const ProductGrid = ({ products }: ProductGridProps) => {
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {products.map((product, index) => (
+    <div className="grid lg:grid-cols-2 gap-2 lg:gap-4">
+      {filteredProducts.map((product, index) => (
         <ProductHroizontalCard key={index} product={product} />
       ))}
     </div>

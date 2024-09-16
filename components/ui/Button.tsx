@@ -6,10 +6,18 @@ interface ButtonProps
   label?: string;
   iconRight?: React.ReactNode;
   disabled?: boolean;
+  variant?: "outline" | "primary";
 }
 
 const Button = (props: ButtonProps) => {
-  const { label, iconRight, disabled, className, ...rest } = props;
+  const {
+    label,
+    iconRight,
+    disabled,
+    className,
+    variant = "primary",
+    ...rest
+  } = props;
 
   return (
     <button
@@ -18,7 +26,11 @@ const Button = (props: ButtonProps) => {
         `default-btn ${
           !disabled ? "hover:bg-slate-900" : "cursor-not-allowed"
         } transition-all duration-300`,
-        className
+        className,
+        {
+          "bg-transparent border border-black text-black hover:bg-black/5":
+            variant == "outline",
+        }
       )}
       disabled={disabled}
     >

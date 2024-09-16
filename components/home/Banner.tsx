@@ -1,14 +1,11 @@
 "use client";
-
 import Image from "next/image";
 import Button from "../ui/Button";
 import { BsArrowRight } from "react-icons/bs";
-import { useDominantColor } from "@/hooks/useDominantColor";
 import { useRouter } from "next/navigation";
 
 const Banner = () => {
   const router = useRouter();
-  const { bgColor, imgRef } = useDominantColor("/images/banner.png");
   return (
     <section className="px-4 h-[45dvh] sm:h-[60dvh] lg:h-[85dvh]">
       <div className="w-full h-full bg-gray-100 rounded-md relative z-0 overflow-hidden">
@@ -28,7 +25,6 @@ const Banner = () => {
               label="Shop Now"
               iconRight={<BsArrowRight color="white" size={22} />}
               className="!w-fit px-4 lg:px-6 self-start mt-6 hover:-translate-y-0.5"
-              style={{ backgroundColor: bgColor ? bgColor : "black" }}
               onClick={() => router.push("/products-listing")}
             />
           </div>
@@ -37,7 +33,6 @@ const Banner = () => {
             <div className="relative banner-img-layer">
               <Image
                 src={"/images/banner.png"}
-                ref={imgRef}
                 alt="Banner"
                 width={700}
                 height={800}
@@ -48,7 +43,6 @@ const Banner = () => {
 
           <Image
             src={"/images/banner.png"}
-            ref={imgRef}
             alt="Banner"
             width={700}
             height={800}
@@ -56,7 +50,7 @@ const Banner = () => {
           />
           <span
             className="absolute bottom-0 text-[200px] lg:text-[250px] leading-none text-nowrap font-bold text-white/50 left-32 lg:left-64"
-            style={{ zIndex: -1, color: bgColor, opacity: 0.09 }}
+            style={{ zIndex: -1 }}
           >
             BEST SELLER
           </span>

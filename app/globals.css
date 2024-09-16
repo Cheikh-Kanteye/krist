@@ -107,6 +107,10 @@
   .filter-btn {
     @apply flex items-center justify-between w-full cursor-pointer hover:bg-gray-50 p-2 rounded-md;
   }
+
+  .checkbox-icon {
+    @apply absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100;
+  }
 }
 
 .carousel::-webkit-scrollbar {

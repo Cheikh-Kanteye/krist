@@ -385,27 +385,27 @@ export const paymentMethods = [
   "/icons/google-pay.png",
   "/icons/amex.png",
   "/icons/pay-pal.png",
-];
+] as const;
 
 export const Categories = [
-  { id: 1, category: "Women" },
-  { id: 2, category: "Kids" },
-  { id: 3, category: "Bags" },
-  { id: 4, category: "Belts" },
-  { id: 5, category: "Wallets" },
-  { id: 6, category: "Watches" },
-  { id: 7, category: "Accessories" },
-  { id: 8, category: "Winter Wear" },
-];
+  { id: 1, category: "women" },
+  { id: 2, category: "kids" },
+  { id: 3, category: "bags" },
+  { id: 4, category: "belts" },
+  { id: 5, category: "wallets" },
+  { id: 6, category: "watches" },
+  { id: 7, category: "accessories" },
+  { id: 8, category: "winter wear" },
+] as const;
 
 export const AvailableColors = [
-  { name: "Red", count: 10 },
-  { name: "Blue", count: 14 },
-  { name: "Orange", count: 8 },
-  { name: "Black", count: 9 },
-  { name: "Green", count: 4 },
-  { name: "Yellow", count: 2 },
-];
+  { name: "red", count: 10 },
+  { name: "blue", count: 14 },
+  { name: "orange", count: 8 },
+  { name: "black", count: 9 },
+  { name: "green", count: 4 },
+  { name: "yellow", count: 2 },
+] as const;
 
 export const AvailableSizes = [
   { size: "XXI", count: 6 },
@@ -414,4 +414,4 @@ export const AvailableSizes = [
   { size: "S", count: 16 },
   { size: "XS", count: 10 },
   { size: "XXS", count: 2 },
-];
+] as const;
