@@ -22,7 +22,7 @@ const ProductFilter = ({
   return (
     <aside
       className={cn(
-        "pfilter transition-all duration-300 w-60 p-4 flex flex-col gap-3 max-lg:fixed h-screen max-lg:top-0 -left-full max-lg:py-12 bg-white max-lg:z-50",
+        "transition-all duration-300 w-60 p-4 flex flex-col gap-3 max-lg:fixed min-h-screen max-lg:top-0 -left-full max-lg:py-12 bg-white max-lg:z-50",
         { "max-lg:left-0": showMenu }
       )}
     >
