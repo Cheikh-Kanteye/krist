@@ -2,7 +2,7 @@
 import { getInitials } from "@/utils";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import LogoutBtn from "./LogoutBtn";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/Avatar";
 
 const Profile = ({ name }: { name: string }) => {
   const initials = name ? getInitials(name) : "?";
