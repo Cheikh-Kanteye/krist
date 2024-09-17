@@ -1,9 +1,6 @@
 "use client";
-import React from "react";
 import { getInitials } from "@/utils";
-import { signOut } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import randomColor from "randomcolor";
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import {
   Popover,
   PopoverContent,
