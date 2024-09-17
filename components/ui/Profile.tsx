@@ -1,11 +1,7 @@
 "use client";
 import { getInitials } from "@/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import LogoutBtn from "../LogoutBtn";
 
 const Profile = ({ name }: { name: string }) => {
