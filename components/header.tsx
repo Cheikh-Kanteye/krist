@@ -11,7 +11,7 @@ import { NavItemList } from "@/constants";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Logo } from "./Logo";
-import Profile from "./ui/Profile";
+import Profile from "./Profile";
 
 const ActionGroup = () => {
   const actions = [
