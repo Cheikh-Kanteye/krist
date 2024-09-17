@@ -1,8 +1,8 @@
 "use client";
 import { getInitials } from "@/utils";
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import LogoutBtn from "../LogoutBtn";
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 const Profile = ({ name }: { name: string }) => {
   const initials = name ? getInitials(name) : "?";
