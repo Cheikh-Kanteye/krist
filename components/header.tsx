@@ -11,7 +11,7 @@ import { NavItemList } from "@/constants";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Logo } from "./Logo";
-import Avatar from "./ui/Avatar";
+import Profile from "./ui/Profile";
 
 const ActionGroup = () => {
   const actions = [
@@ -78,14 +78,14 @@ const Header = () => {
           onClick={toggleMenu}
           className="block lg:hidden p-2 aspect-square rounded-full bg-slate-50 lg:hover:bg-slate-100 duration-300"
         />
-        {status === "unauthenticated" ? (
+        {status === "loading" ? null : status === "authenticated" ? (
+          <Profile name={data?.user?.email!} />
+        ) : (
           <Button
             label={"Login"}
             className="w-fit px-6 h-12 hidden lg:block"
             onClick={() => router.push("/login")}
           />
-        ) : (
-          <Avatar name={data?.user?.email!} />
         )}
       </div>
     </header>

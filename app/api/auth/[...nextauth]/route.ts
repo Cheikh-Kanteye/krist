@@ -10,38 +10,48 @@ const handler = NextAuth({
   pages: {
     signIn: "/login",
   },
+  // debug: process.env.NODE_ENV === "development",
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        email: {},
-        password: {},
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
-        console.log({ credentials });
+      async authorize(credentials) {
+        try {
+          console.log({ credentials });
 
-        const response = await sql`
-        SELECT * FROM users WHERE email=${credentials?.email}
-        `;
+          if (!credentials?.email || !credentials?.password) {
+            throw new Error("Missing email or password");
+          }
 
-        const user = response.rows[0];
+          const response = await sql`
+            SELECT * FROM users WHERE email=${credentials.email}
+          `;
 
-        const correctPwd = await compare(
-          credentials?.password || "",
-          user.password
-        );
+          const user = response.rows[0];
 
-        console.log({ correctPwd });
+          if (!user) {
+            throw new Error("No user found");
+          }
 
-        if (correctPwd) {
-          return {
-            id: user.id,
-            email: user.email,
-            password: user.password,
-          };
+          const correctPwd = await compare(credentials.password, user.password);
+
+          console.log({ correctPwd });
+
+          if (correctPwd) {
+            return {
+              id: user.id,
+              email: user.email,
+            };
+          }
+
+          return null;
+        } catch (error) {
+          console.error("Error during authorization:", error);
+          return null;
         }
-
-        return null;
       },
     }),
   ],

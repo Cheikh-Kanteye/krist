@@ -8,6 +8,7 @@ import ProductList from "@/components/product/ProductList";
 import { BiChevronDown } from "react-icons/bi";
 import { ProductProvider } from "@/context/ProductFIlterContext";
 import { FiFilter } from "react-icons/fi";
+import ProductShortMenu from "@/components/product/ProductShortMenu";
 
 const ProductListing = () => {
   const [isGridView, setIsGridView] = useState(true);
@@ -48,12 +49,7 @@ const ProductListing = () => {
                     toggleList={() => setIsGridView(false)}
                   />
                 </div>
-                <div className="flex flex-col gap-3">
-                  <div className="flex gap-1 cursor-pointer items-center">
-                    <span>Short by latest</span>
-                    <BiChevronDown size={24} color="black" />
-                  </div>
-                </div>
+                <ProductShortMenu />
               </div>
               {isGridView ? <ProductGrid /> : <ProductList />}
             </section>

@@ -72,7 +72,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
               className={`absolute ${
                 !IconLeft ? "left-3" : "left-12"
               } top-1/2 transform -translate-y-1/2 transition-all duration-300 pointer-events-none ${
-                isFocused || (rest as any).value
+                isFocused
                   ? "-translate-y-14 text-base text-gray-500"
                   : "text-base"
               }`}

@@ -1,7 +1,6 @@
 "use client";
-
 import { signOut } from "next-auth/react";
-import React from "react";
+import { LuLogOut } from "react-icons/lu";
 
 const LogoutBtn = () => {
   return (
@@ -10,8 +9,9 @@ const LogoutBtn = () => {
       onClick={() => {
         signOut();
       }}
+      className="text-lg text-black flex items-center gap-2"
     >
-      Logout
+      <LuLogOut size={22} /> Sign out
     </button>
   );
 };
